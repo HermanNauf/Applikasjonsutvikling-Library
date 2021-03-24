@@ -66,7 +66,7 @@ public class loginController implements Initializable {
                 }
             }
             else {
-                this.loginStatus.setText("Wrong credentials");
+                this.loginStatus.setText("Wrong username or password!");
             }
 
         }catch(Exception e){
@@ -80,7 +80,7 @@ public class loginController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             Pane root = (Pane)loader.load(getClass().getResource("/students/student.fxml").openStream());
 
-            studentController studentController = (studentController)loader.getController();
+            studentController studentController = loader.getController();
 
             Scene scene = new Scene(root);
             studentStage.setScene(scene);
@@ -100,7 +100,7 @@ public class loginController implements Initializable {
             FXMLLoader adminLoader = new FXMLLoader();
             Pane adminRoot = (Pane)adminLoader.load(getClass().getResource("/admin/admin.fxml").openStream());
 
-            adminController admincontroller = (adminController)adminLoader.getController();
+            adminController admincontroller = adminLoader.getController();
 
             Scene scene = new Scene(adminRoot);
             adminStage.setScene(scene);
