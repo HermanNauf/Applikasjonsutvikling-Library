@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0e30f54b-0941-4b77-bd4a-6164373deef8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/loginApp/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/loginApp/login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/loginApp/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/loginApp/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/loginApp/loginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/loginApp/loginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loginApp/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginApp/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loginApp/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginApp/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loginApp/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginApp/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/admin/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/admin/admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/admin/adminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/admin/adminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Applikasjonsutvikling-Library/admin/studentdata.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/adminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/adminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/studentdata.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +38,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.23/mysql-connector-java-8.0.23.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -119,10 +120,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616524569447" />
-    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1616536845870">
+    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1616593730082">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616536845870" />
+    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616593730082" />
+    <state x="539" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1616576592190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616576592190" />
     <state x="449" y="27" key="CommitChangelistDialog2" timestamp="1616525274336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -135,38 +140,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616537623473" />
-    <state width="1877" height="171" key="GridCell.Tab.0.bottom" timestamp="1616546458329">
+    <state width="1877" height="171" key="GridCell.Tab.0.bottom" timestamp="1616596493655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616546458329" />
-    <state width="1877" height="171" key="GridCell.Tab.0.center" timestamp="1616546458328">
+    <state width="1877" height="171" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596493655" />
+    <state width="1877" height="171" key="GridCell.Tab.0.center" timestamp="1616596493655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.0.center/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616546458328" />
-    <state width="1877" height="171" key="GridCell.Tab.0.left" timestamp="1616546458328">
+    <state width="1877" height="171" key="GridCell.Tab.0.center/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596493655" />
+    <state width="1877" height="171" key="GridCell.Tab.0.left" timestamp="1616596493654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.0.left/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616546458328" />
-    <state width="1877" height="171" key="GridCell.Tab.0.right" timestamp="1616546458328">
+    <state width="1877" height="171" key="GridCell.Tab.0.left/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596493654" />
+    <state width="1877" height="171" key="GridCell.Tab.0.right" timestamp="1616596493655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="171" key="GridCell.Tab.0.right/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616546458328" />
-    <state width="1877" height="326" key="GridCell.Tab.1.bottom" timestamp="1616545600346">
+    <state width="1877" height="171" key="GridCell.Tab.0.right/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596493655" />
+    <state width="1877" height="326" key="GridCell.Tab.1.bottom" timestamp="1616596466821">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="326" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616545600346" />
-    <state width="1877" height="326" key="GridCell.Tab.1.center" timestamp="1616545600346">
+    <state width="1877" height="326" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596466821" />
+    <state width="1877" height="326" key="GridCell.Tab.1.center" timestamp="1616596466820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="326" key="GridCell.Tab.1.center/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616545600346" />
-    <state width="1877" height="326" key="GridCell.Tab.1.left" timestamp="1616545600346">
+    <state width="1877" height="326" key="GridCell.Tab.1.center/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596466820" />
+    <state width="1877" height="326" key="GridCell.Tab.1.left" timestamp="1616596466820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="326" key="GridCell.Tab.1.left/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616545600346" />
-    <state width="1877" height="326" key="GridCell.Tab.1.right" timestamp="1616545600346">
+    <state width="1877" height="326" key="GridCell.Tab.1.left/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596466820" />
+    <state width="1877" height="326" key="GridCell.Tab.1.right" timestamp="1616596466820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="326" key="GridCell.Tab.1.right/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616545600346" />
+    <state width="1877" height="326" key="GridCell.Tab.1.right/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616596466820" />
     <state x="557" y="157" key="RollbackChangesDialog" timestamp="1616539264347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -179,13 +184,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616525291328" />
-    <state x="636" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1616542777076">
+    <state x="636" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1616591680885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616542777076" />
+    <state x="636" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616591680885" />
     <state x="767" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616525238396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="767" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.12.1920.1040@0.0.1920.1040" timestamp="1616525238396" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/admin/adminController.java</url>
+          <line>103</line>
+          <properties class="admin.adminController" method="deleteAuthor">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
