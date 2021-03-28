@@ -1,5 +1,6 @@
 package admin;
 
+import HTTPserver.HttpHandler;
 import database.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,6 +28,7 @@ public class adminController implements Initializable {
     private ObservableList<AuthorData> data;
     private String sql = "SELECT * FROM author";
     private String deleteAuthor = "DELETE FROM author WHERE author_id = ?";
+    Socket s = new Socket(InetAddress.getByName("localhost"), 8080);
 
     @FXML
     private TextField id;
@@ -38,7 +43,8 @@ public class adminController implements Initializable {
     @FXML
     private TableView<AuthorData> authorTable;
 
-
+    public adminController() throws IOException {
+    }
 
 
     @Override
@@ -85,6 +91,10 @@ public class adminController implements Initializable {
             statement.setString(2, this.authorName.getText());
             statement.execute();
             statement.close();
+
+            //HttpHandler handler = new HttpHandler(s);
+            //handler.run();
+
 
 
         } catch (SQLException e) {
