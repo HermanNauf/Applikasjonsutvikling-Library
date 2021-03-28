@@ -53,10 +53,10 @@ public class loginController implements Initializable {
     public void Login(ActionEvent event){
         try {
 
-            if(this.loginModel.isLogin(this.username.getText(), this.password.getText(), ((option)this.combobox.getValue()).toString())){
+            if(this.loginModel.isLogin(this.username.getText(), this.password.getText(), this.combobox.getValue().toString())){
                 Stage stage = (Stage)this.loginButton.getScene().getWindow();
                 stage.close();
-                switch(((option)this.combobox.getValue()).toString()){
+                switch(this.combobox.getValue().toString()){
                     case "Admin":
                         adminLogin();
                         break;
@@ -78,7 +78,7 @@ public class loginController implements Initializable {
         try {
             Stage studentStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
-            Pane root = (Pane)loader.load(getClass().getResource("/students/student.fxml").openStream());
+            Pane root = loader.load(getClass().getResource("/students/student.fxml").openStream());
 
             studentController studentController = loader.getController();
 
@@ -98,7 +98,7 @@ public class loginController implements Initializable {
         try {
             Stage adminStage = new Stage();
             FXMLLoader adminLoader = new FXMLLoader();
-            Pane adminRoot = (Pane)adminLoader.load(getClass().getResource("/admin/admin.fxml").openStream());
+            Pane adminRoot = adminLoader.load(getClass().getResource("/admin/admin.fxml").openStream());
 
             adminController admincontroller = adminLoader.getController();
 
