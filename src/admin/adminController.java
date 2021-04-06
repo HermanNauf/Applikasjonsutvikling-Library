@@ -135,8 +135,10 @@ public class adminController implements Initializable {
     }
 
     @FXML
-    public void insertBook(ActionEvent event) throws SQLException {
+    public String insertBook(ActionEvent event) throws SQLException {
         String insertBook = "INSERT INTO book(book_id, book_name, publisher_name, published_date) VALUE (?,?,?,?)";
+
+        String responseMsg = "Insert failed";
 
         try {
             Connection con = dbConnection.dbConnection();
@@ -148,13 +150,16 @@ public class adminController implements Initializable {
             statement.execute();
             statement.close();
 
+            responseMsg = "Insert Completed!";
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         loadAuthorData();
         clearField();
 
-
+        return responseMsg;
     }
     @FXML
     private void loadBookData()throws SQLException{

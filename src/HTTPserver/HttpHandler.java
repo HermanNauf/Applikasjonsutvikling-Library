@@ -50,7 +50,7 @@ public class HttpHandler implements Runnable {
         OutputStream output;
 
         File parent = new File(System.getProperty("user.dir"));
-        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-LibraryV2");
+        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-Library");
 
         if (root.isDirectory()) {
             input = socket.getInputStream();
@@ -77,7 +77,7 @@ public class HttpHandler implements Runnable {
             if (line.length() <= 0) {
                 break;
             }
-            if (line.startsWith("GET")) {
+            if (line.startsWith("POST")) {
                 String filename= line.split(" ")[1].substring(1);
                 File resource = new File(root + File.separator + filename);
                 if (resource.isFile()) {
