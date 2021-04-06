@@ -59,4 +59,6 @@ public class dbConnection {
         System.out.println("This table contains "+ res.getRow() + " rows\n");
         res.beforeFirst();
     }
+
+
     }
