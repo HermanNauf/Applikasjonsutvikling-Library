@@ -3,7 +3,7 @@ package loginApp;
 public enum option {
     Admin , Student;
 
-    private option(){}
+    option(){}
 
         public String value(){
             return name();
