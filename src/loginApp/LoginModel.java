@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class LoginModel {
     Connection connection;
 
-    public LoginModel() throws SQLException {
+    public LoginModel() {
         try{
             this.connection = dbConnection.dbConnection();
             } catch (SQLException e){
@@ -25,7 +25,7 @@ public class LoginModel {
         return this.connection != null;
     }
 
-    public boolean isLogin(String user, String password, String opt)throws Exception{
+    public boolean isLogin(String user, String password, String opt)throws Exception {
         PreparedStatement pr = null;
         ResultSet result = null;
 
