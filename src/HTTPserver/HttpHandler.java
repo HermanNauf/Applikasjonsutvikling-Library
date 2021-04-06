@@ -50,7 +50,7 @@ public class HttpHandler implements Runnable {
         OutputStream output;
 
         File parent = new File(System.getProperty("user.dir"));
-        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-Library");
+        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-LibraryV2");
 
         if (root.isDirectory()) {
             input = socket.getInputStream();
@@ -80,7 +80,7 @@ public class HttpHandler implements Runnable {
             if (line.startsWith("POST")) {
                 String filename= line.split(" ")[1].substring(1);
                 File resource = new File(root + File.separator + filename);
-                if (resource.isFile()) {
+                if (true) {
                     res = filename;
                     populateResponse(resource, output);
                     Server.printResult(res, socket.getPort(), socket.getRemoteSocketAddress().toString());
@@ -109,13 +109,13 @@ public class HttpHandler implements Runnable {
         String REQ_FOUND = "HTTP/1.0 200 OK\n";
         String SERVER = "Server: HTTP server/0.1\n";
         String DATE = "Date: " + format.format(new java.util.Date()) + "\n";
-        String CONTENT_TYPE = "Content-type: " + URLConnection.guessContentTypeFromName(resource.getName());
+        String CONTENT_TYPE = "Content-type: " + URLConnection.guessContentTypeFromName(resource.getName())+ "\n";
         String LENGTH = "Content-Length: " + (resource.length()) + "\n\n";
 
         String header = REQ_FOUND + SERVER + DATE + CONTENT_TYPE + LENGTH;
         output.write(header.getBytes());
 
-        Files.copy(Paths.get(resource.toString()), output);
+        //Files.copy(Paths.get(resource.toString()), output);
         output.flush();
     }
 }

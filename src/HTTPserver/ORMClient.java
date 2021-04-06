@@ -29,7 +29,7 @@ class ORMClient extends Thread {
         //request first line formation.
         try {
             pw.print("POST /");
-            pw.print("ORM-Lib");
+            pw.print("\\src\\HTTPserver\\index.html");
 
             pw.print(" HTTP/1.1\r\n");
             //request headers formation.
@@ -65,7 +65,7 @@ class ORMClient extends Thread {
 
 class ORMTestClient {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
 
         ORMClient ormClient1 = new ORMClient();
@@ -81,9 +81,13 @@ class ORMTestClient {
         ormClient5.setName("Client 5 - ");
 
         ormClient1.start();
+        ormClient1.sleep(1000);
         ormClient2.start();
+        ormClient2.sleep(1000);
         ormClient3.start();
+        ormClient3.sleep(1000);
         ormClient4.start();
+        ormClient4.sleep(1000);
         ormClient5.start();
 
     }
