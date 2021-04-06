@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sun.plugin.dom.html.HTMLBodyElement;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -26,9 +27,11 @@ public class adminController implements Initializable {
 
     private dbConnection conn;
     private ObservableList<AuthorData> data;
+    private ObservableList<BookData> bookData;
     private String sql = "SELECT * FROM author";
+    private String bookSQL = "SELECT * FROM book";
     private String deleteAuthor = "DELETE FROM author WHERE author_id = ?";
-    Socket s = new Socket(InetAddress.getByName("localhost"), 8080);
+    //Socket s = new Socket(InetAddress.getByName("localhost"), 8080);
 
     @FXML
     private TextField id;
@@ -36,12 +39,36 @@ public class adminController implements Initializable {
     private TextField authorName;
 
     @FXML
+    private TextField bookID;
+    @FXML
+    private TextField bookName;
+    @FXML
+    private TextField publisherName;
+    @FXML
+    private TextField publishedDate;
+
+
+
+    @FXML
     private TableColumn<AuthorData, String> idColumn;
     @FXML
     private TableColumn<AuthorData, String> authorNameColumn;
 
+
+    @FXML
+    private TableColumn<BookData, String> bookIdColumn;
+    @FXML
+    private TableColumn<BookData, String> bookNameColumn;
+    @FXML
+    private TableColumn<BookData, String> publisherNameColumn;
+    @FXML
+    private TableColumn<BookData, String> publishedDateColumn;
+
     @FXML
     private TableView<AuthorData> authorTable;
+
+    @FXML
+    private TableView<BookData> bookTable;
 
     public adminController() throws IOException {
     }
@@ -56,6 +83,7 @@ public class adminController implements Initializable {
         }
         try {
             loadAuthorData();
+            loadBookData();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -105,6 +133,52 @@ public class adminController implements Initializable {
 
 
     }
+
+    @FXML
+    public void insertBook(ActionEvent event) throws SQLException {
+        String insertBook = "INSERT INTO book(book_id, book_name, publisher_name, published_date) VALUE (?,?,?,?)";
+
+        try {
+            Connection con = dbConnection.dbConnection();
+            PreparedStatement statement = con.prepareStatement(insertBook);
+            statement.setString(1, this.bookID.getText());
+            statement.setString(2, this.bookName.getText());
+            statement.setString(3, this.publisherName.getText());
+            statement.setString(4, this.publishedDate.getText());
+            statement.execute();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        loadAuthorData();
+        clearField();
+
+
+    }
+    @FXML
+    private void loadBookData()throws SQLException{
+        try {
+            Connection con = dbConnection.dbConnection();
+            this.bookData = FXCollections.observableArrayList();
+
+            ResultSet set = con.createStatement().executeQuery(bookSQL);
+            while (set.next()){
+                this.bookData.add(new BookData(set.getString(1), set.getString(2),set.getString(3),set.getString(4)));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        this.bookIdColumn.setCellValueFactory(new PropertyValueFactory<BookData, String>("bookID"));
+        this.bookNameColumn.setCellValueFactory(new PropertyValueFactory<BookData, String>("bookName"));
+        this.publisherNameColumn.setCellValueFactory(new PropertyValueFactory<BookData, String>("publisherName"));
+        this.publishedDateColumn.setCellValueFactory(new PropertyValueFactory<BookData, String>("publishedDate"));
+
+        this.bookTable.setItems(null);
+        this.bookTable.setItems(this.bookData);
+    }
+
+
     @FXML
     private void clearField(){
         this.id.setText("");
