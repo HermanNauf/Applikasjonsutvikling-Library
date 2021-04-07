@@ -91,16 +91,19 @@ public class HttpHandler implements Runnable {
                     bodyFormat.append("-------------------\n\n");
                     adminController controller = new adminController();
 
+                    String question = bf.readLine().split("QUESTION:")[1].substring(1);
+
+
 
                     //question 1
-                    if(bf.readLine().startsWith("1")){
+                    if(question.startsWith("1")){
                         bodyFormat.append("Question 1:");
 
                         String response = controller.insertBook("Testbook", "Bookname", "Herman", "12/12/12");
                         bodyFormat.append(" "+ response + "\n\n");
                     }
                     //question 2
-                    if(bf.readLine().startsWith("2")){
+                    if(question.startsWith("2")){
                         bodyFormat.append("Question 2:");
 
                         String response = controller.deleteLoanRecord("bor12345", "b12345");

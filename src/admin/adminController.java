@@ -218,7 +218,7 @@ public class adminController implements Initializable {
             Connection con = dbConnection.dbConnection();
             PreparedStatement statement = con.prepareStatement(deleteLoan);
             statement.setString(1, borrower_id);
-            statement.setString(1, book_id);
+            statement.setString(2, book_id);
             statement.execute();
             statement.close();
 
