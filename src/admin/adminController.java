@@ -3,10 +3,7 @@ package admin;
 import database.dbConnection;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -303,4 +300,66 @@ public class adminController implements Initializable {
 
         return status;
     }
+    public String question4(){
+        String status = "";
+        String query = "SELECT b.borrower_name FROM ((borrower b NATURAL JOIN borrowerBooks l) NATURAL JOIN book k) WHERE b.borrower_id = l.borrower_id  AND book_name = 'Harry Potter and the Goblet of Fire'";
+        try {
+            Connection connection = dbConnection.dbConnection();
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet result = statement.executeQuery(query);
+            status = "Query executed!\n";
+            status += "Query Result: \n";
+
+            while(result.next()){
+                status += "" + result.getString(1) + "\n";
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
+
+    public String question5(){
+        String status = "";
+        String query = "SELECT b.book_name, bor.borrower_name, lib.library_name FROM book b, borrower bor, borrowerBooks bbook, library lib WHERE library_name = 'Trondheim Bibliotek' AND lib.library_id = bbook.library_id AND bbook.dueDate = 'today' AND bbook.borrower_id = bor.borrower_id AND bbook.book_id = b.book_id";
+        try {
+            Connection connection = dbConnection.dbConnection();
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet result = statement.executeQuery(query);
+            status = "Query executed!\n";
+            status += "Query Result: \n";
+
+            while(result.next()){
+                status += "" + result.getString(1) + " " + result.getString(2) + " " + result.getString(3) + "\n";
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
+    public String question6(){
+        String status = "";
+        String query = "SELECT library_name, count(*) from library INNER JOIN borrowerBooks  on library.library_id = borrowerBooks.library_id GROUP BY library_name";
+        try {
+            Connection connection = dbConnection.dbConnection();
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet result = statement.executeQuery(query);
+            status = "Query executed!\n";
+            status += "Query Result: \n";
+
+            while(result.next()){
+                status += "" + result.getString(1) + "\n";
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
+
 }
