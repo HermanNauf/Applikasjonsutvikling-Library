@@ -132,6 +132,25 @@ public class HttpHandler implements Runnable {
                         String response = controller.deleteLoanRecord(borrowerID, bookID);
                         bodyFormat.append(" "+ response + "\n\n");
                     }
+                    if(question.startsWith("4")){
+                        bodyFormat.append("Question 4:");
+
+                        String response = controller.question4();
+                        bodyFormat.append(" " + response + "\n");
+                    }
+                    if(question.startsWith("5")){
+                        bodyFormat.append("Question 5:");
+
+                        String response = controller.question5();
+                        bodyFormat.append(" " + response + "\n");
+                    }
+                    if(question.startsWith("6")){
+                        bodyFormat.append("Question 6:");
+
+                        String response = controller.question6();
+                        bodyFormat.append(" " + response + "\n");
+                    }
+
                     output.write(bodyFormat.toString().getBytes());
 
                 } else {

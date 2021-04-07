@@ -37,7 +37,7 @@ class ORMClient extends Thread {
             pw.print("Host: localhost\r\n\r\n");
             //request body formation.
 
-            if (number < 6) {
+            if (number < 7) {
                 pw.print(currentThread().getName() + " with ");
                 pw.print("QUESTION" + number + "\r\n");
                 //You can use here to print the sending message.
@@ -61,8 +61,8 @@ class ORMClient extends Thread {
 
                 // Delete loan record
                 if (number == 3) {
-                    pw.println("bor12345"); // Borrower ID
-                    pw.println("b12345"); // Book ID
+                    pw.println("bor23456"); // Borrower ID
+                    pw.println("b45678"); // Book ID
                 }
             }
 
@@ -96,12 +96,14 @@ class ORMTestClient {
         ORMClient ormClient3 = new ORMClient();
         ORMClient ormClient4 = new ORMClient();
         ORMClient ormClient5 = new ORMClient();
+        ORMClient ormClient6 = new ORMClient();
 
         ormClient1.setName("Client 1 - ");
         ormClient2.setName("Client 2 - ");
         ormClient3.setName("Client 3 - ");
         ormClient4.setName("Client 4 - ");
         ormClient5.setName("Client 5 - ");
+        ormClient6.setName("Client 6 - ");
 
         ormClient1.start();
         ormClient1.sleep(1500);
@@ -112,6 +114,8 @@ class ORMTestClient {
         ormClient4.start();
         ormClient4.sleep(1500);
         ormClient5.start();
+        ormClient5.sleep(1500);
+        ormClient6.start();
 
     }
 }
