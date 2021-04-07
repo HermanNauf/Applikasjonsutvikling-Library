@@ -17,7 +17,7 @@ public class dbConnection {
     static {
         try {
             con = DriverManager.getConnection(URL_STRING, USER_NAME, PASSWORD);
-            System.out.println("Database connection established...");
+            //System.out.println("Database connection established...");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -1,5 +1,6 @@
 package HTTPserver;
 
+import admin.adminController;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -8,11 +9,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URLConnection;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
-import admin.*;
 
 /**
  * @author ambarmodi
@@ -51,7 +49,7 @@ public class HttpHandler implements Runnable {
         OutputStream output;
 
         File parent = new File(System.getProperty("user.dir"));
-        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-LibraryV2");
+        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-Library");
 
         if (root.isDirectory()) {
             input = socket.getInputStream();
@@ -88,25 +86,50 @@ public class HttpHandler implements Runnable {
                     StringBuilder bodyFormat = new StringBuilder();
                     bodyFormat.append(System.getProperty("line.separator"));
                     bodyFormat.append("Requested body is: \n");
-                    bodyFormat.append("-------------------\n\n");
+                    bodyFormat.append("-------------------\n");
                     adminController controller = new adminController();
 
                     String question = bf.readLine().split("QUESTION:")[1].substring(1);
 
+                    bf.readLine();
 
+                    String requestBody = bf.readLine();
+                    bodyFormat.append(requestBody + "\n\n");
 
                     //question 1
                     if(question.startsWith("1")){
                         bodyFormat.append("Question 1:");
 
-                        String response = controller.insertBook("Testbook", "Bookname", "Herman", "12/12/12");
+                        String id = bf.readLine();
+                        String title = bf.readLine();
+                        String publisher = bf.readLine();
+                        String publishedDate = bf.readLine();
+
+                        String response = controller.insertBook(id, title, publisher, publishedDate);
                         bodyFormat.append(" "+ response + "\n\n");
                     }
+
                     //question 2
                     if(question.startsWith("2")){
                         bodyFormat.append("Question 2:");
 
-                        String response = controller.deleteLoanRecord("bor12345", "b12345");
+                        String oldName = bf.readLine();
+                        String oldPass = bf.readLine();
+                        String newName = bf.readLine();
+                        String newPass = bf.readLine();
+
+                        String response = controller.updateUsernameAndPassword(oldName, oldPass, newName, newPass);
+                        bodyFormat.append(" " + response + "\n\n");
+                    }
+
+                    //question 3
+                    if(question.startsWith("3")){
+                        bodyFormat.append("Question 3:");
+
+                        String borrowerID = bf.readLine();
+                        String bookID = bf.readLine();
+
+                        String response = controller.deleteLoanRecord(borrowerID, bookID);
                         bodyFormat.append(" "+ response + "\n\n");
                     }
                     output.write(bodyFormat.toString().getBytes());

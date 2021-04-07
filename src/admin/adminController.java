@@ -1,7 +1,13 @@
 package admin;
 
-import HTTPserver.HttpHandler;
 import database.dbConnection;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,17 +17,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sun.plugin.dom.html.HTMLBodyElement;
-
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 public class adminController implements Initializable {
 
@@ -300,7 +295,7 @@ public class adminController implements Initializable {
 
             statement.executeUpdate();
 
-            status = "User: " + oldName + " changed to " + newName;
+            status = "Update completed!";
 
         } catch (SQLException e) {
             e.printStackTrace();

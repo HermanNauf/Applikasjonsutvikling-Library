@@ -42,6 +42,28 @@ class ORMClient extends Thread {
                 pw.print("QUESTION" + number + "\r\n");
                 //You can use here to print the sending message.
 //                System.out.println(currentThread().getName() +"  "+ number);
+
+                // Insert a new book
+                if (number == 1) {
+                    pw.println("b1"); // Book ID
+                    pw.println("Bookname"); // Title
+                    pw.println("Herman"); // Publisher
+                    pw.println("12/12/12"); // Publication date
+                }
+
+                // Update username and password
+                if (number == 2) {
+                    pw.println("Josefsen1"); // Old username
+                    pw.println("Josefsen123"); // Old password
+                    pw.println("Johannes"); // New username
+                    pw.println("Johannes123"); // New password
+                }
+
+                // Delete loan record
+                if (number == 3) {
+                    pw.println("bor12345"); // Borrower ID
+                    pw.println("b12345"); // Book ID
+                }
             }
 
             pw.flush();
@@ -82,13 +104,13 @@ class ORMTestClient {
         ormClient5.setName("Client 5 - ");
 
         ormClient1.start();
-        ormClient1.sleep(1000);
+        ormClient1.sleep(1500);
         ormClient2.start();
-        ormClient2.sleep(1000);
+        ormClient2.sleep(1500);
         ormClient3.start();
-        ormClient3.sleep(1000);
+        ormClient3.sleep(1500);
         ormClient4.start();
-        ormClient4.sleep(1000);
+        ormClient4.sleep(1500);
         ormClient5.start();
 
     }
