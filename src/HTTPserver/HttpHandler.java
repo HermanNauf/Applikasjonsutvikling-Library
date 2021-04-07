@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
+import admin.*;
 
 /**
  * @author ambarmodi
@@ -95,7 +96,9 @@ public class HttpHandler implements Runnable {
                     if(bf.readLine().startsWith("1")){
                         bodyFormat.append("Question 1:");
 
-
+                        adminController controller = new adminController();
+                        String response = controller.insertBook("Testbook", "Bookname", "Herman", "12/12/12");
+                        bodyFormat.append(" "+ response + "\n\n");
                     }
 
                     output.write(bodyFormat.toString().getBytes());

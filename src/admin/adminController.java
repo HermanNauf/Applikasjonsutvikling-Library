@@ -185,6 +185,30 @@ public class adminController implements Initializable {
 
         return responseMsg;
     }
+
+    public String insertBook(String book_id, String book_name, String publisher_name, String published_date){
+        String responseMsg = "Insert failed";
+        String insertBook = "INSERT INTO book(book_id, book_name, publisher_name, published_date) VALUE (?,?,?,?)";
+
+        try {
+
+            Connection con = dbConnection.dbConnection();
+            PreparedStatement statement = con.prepareStatement(insertBook);
+            statement.setString(1, book_id);
+            statement.setString(2, book_name);
+            statement.setString(3, publisher_name);
+            statement.setString(4, published_date);
+            statement.execute();
+            statement.close();
+
+            responseMsg = "Insert Completed!";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return responseMsg;
+    }
     @FXML
     private void loadBookData()throws SQLException{
         try {
