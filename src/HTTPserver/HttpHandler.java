@@ -80,10 +80,26 @@ public class HttpHandler implements Runnable {
             if (line.startsWith("POST")) {
                 String filename= line.split(" ")[1].substring(1);
                 File resource = new File(root + File.separator + filename);
-                if (true) {
+                if (!filename.isEmpty()) {
                     res = filename;
                     populateResponse(resource, output);
                     Server.printResult(res, socket.getPort(), socket.getRemoteSocketAddress().toString());
+                    StringBuilder bodyFormat = new StringBuilder();
+                    bodyFormat.append(System.getProperty("line.separator"));
+                    bodyFormat.append("Requested body is: \n");
+                    bodyFormat.append("-------------------\n");
+
+
+
+                    //question 1
+                    if(bf.readLine().startsWith("1")){
+                        bodyFormat.append("Question 1:");
+
+
+                    }
+
+                    output.write(bodyFormat.toString().getBytes());
+
                 } else {
                     String Content_NOT_FOUND = "<html><head></head><body><h1>File Not Found</h1></body></html>";
 
