@@ -130,8 +130,32 @@ public class adminController implements Initializable {
         }
         loadAuthorData();
         clearField();
+    }
 
+    /**
+     * Adds author to database. Returns status as a string.
+     *
+     * @param id of author
+     * @param name of author
+     * @return status of action as string
+     */
+    public String addAuthor(String id, String name) {
+        String status = "Error: Author not added.";
+        String query = "INSERT INTO author(author_id,author_name) VALUE (?,?)";
 
+        try {
+            Connection con = dbConnection.dbConnection();
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, id);
+            statement.setString(2, name);
+            statement.execute();
+            statement.close();
+            status = "Author added: " + name + ", with ID: " + id;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return status;
     }
 
     @FXML
