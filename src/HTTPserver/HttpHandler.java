@@ -88,9 +88,8 @@ public class HttpHandler implements Runnable {
                     StringBuilder bodyFormat = new StringBuilder();
                     bodyFormat.append(System.getProperty("line.separator"));
                     bodyFormat.append("Requested body is: \n");
-                    bodyFormat.append("-------------------\n");
+                    bodyFormat.append("-------------------\n\n");
                     adminController controller = new adminController();
-                    System.out.println(bf.readLine());
 
 
                     //question 1
