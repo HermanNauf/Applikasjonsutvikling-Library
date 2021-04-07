@@ -250,4 +250,41 @@ public class adminController implements Initializable {
         loadAuthorData();
 
     }
+
+    /**
+     * Updates an existing user with new username and password.
+     *
+     * @param oldName old username
+     * @param oldPass old password
+     * @param newName new username
+     * @param newPass new password
+     * @return status message
+     */
+    public String updateUsernameAndPassword(String oldName, String oldPass, String newName, String newPass) {
+        String status = "Error! User not updated";
+        String query = "UPDATE users SET username = ?, password = ? WHERE username = ? and password = ?";
+
+        if (newName.length() < 1 || newPass.length() < 1) {
+            return status;
+        }
+
+        try {
+            Connection connection = dbConnection.dbConnection();
+            PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setString(1, newName);
+            statement.setString(2, newPass);
+            statement.setString(3, oldName);
+            statement.setString(4, oldPass);
+
+            statement.executeUpdate();
+
+            status = "User: " + oldName + " changed to " + newName;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
 }
