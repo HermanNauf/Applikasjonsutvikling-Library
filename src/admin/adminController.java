@@ -209,6 +209,27 @@ public class adminController implements Initializable {
 
         return responseMsg;
     }
+    public String deleteLoanRecord(String borrower_id, String book_id){
+        String responseMsg = "Delete failed";
+        String deleteLoan = "DELETE FROM borrowerBooks WHERE borrower_id = ? AND book_id = ?";
+
+        try {
+
+            Connection con = dbConnection.dbConnection();
+            PreparedStatement statement = con.prepareStatement(deleteLoan);
+            statement.setString(1, borrower_id);
+            statement.setString(1, book_id);
+            statement.execute();
+            statement.close();
+
+            responseMsg = "Delete Completed!";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return responseMsg;
+    }
     @FXML
     private void loadBookData()throws SQLException{
         try {

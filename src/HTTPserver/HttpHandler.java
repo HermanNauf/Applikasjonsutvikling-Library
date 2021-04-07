@@ -51,7 +51,7 @@ public class HttpHandler implements Runnable {
         OutputStream output;
 
         File parent = new File(System.getProperty("user.dir"));
-        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-Library");
+        File root = new File(parent.getParent() + File.separator  +"Applikasjonsutvikling-LibraryV2");
 
         if (root.isDirectory()) {
             input = socket.getInputStream();
@@ -89,18 +89,24 @@ public class HttpHandler implements Runnable {
                     bodyFormat.append(System.getProperty("line.separator"));
                     bodyFormat.append("Requested body is: \n");
                     bodyFormat.append("-------------------\n");
-
+                    adminController controller = new adminController();
+                    System.out.println(bf.readLine());
 
 
                     //question 1
                     if(bf.readLine().startsWith("1")){
                         bodyFormat.append("Question 1:");
 
-                        adminController controller = new adminController();
                         String response = controller.insertBook("Testbook", "Bookname", "Herman", "12/12/12");
                         bodyFormat.append(" "+ response + "\n\n");
                     }
+                    //question 2
+                    if(bf.readLine().startsWith("2")){
+                        bodyFormat.append("Question 2:");
 
+                        String response = controller.deleteLoanRecord("bor12345", "b12345");
+                        bodyFormat.append(" "+ response + "\n\n");
+                    }
                     output.write(bodyFormat.toString().getBytes());
 
                 } else {
@@ -129,7 +135,7 @@ public class HttpHandler implements Runnable {
         String SERVER = "Server: HTTP server/0.1\n";
         String DATE = "Date: " + format.format(new java.util.Date()) + "\n";
         String CONTENT_TYPE = "Content-type: " + URLConnection.guessContentTypeFromName(resource.getName())+ "\n";
-        String LENGTH = "Content-Length: " + (resource.length()) + "\n\n";
+        String LENGTH = "Content-Length: " + (resource.length()) + "\n";
 
         String header = REQ_FOUND + SERVER + DATE + CONTENT_TYPE + LENGTH;
         output.write(header.getBytes());
